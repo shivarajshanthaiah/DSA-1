@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	str := "hello"
+	str := "malayalam"
 
 	result := pal(str)
 
