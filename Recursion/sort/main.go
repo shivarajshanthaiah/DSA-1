@@ -14,6 +14,5 @@ func decreasing(nums int) {
 	}
 	fmt.Print(nums," ")
 	decreasing(nums-1)
-	
 
 }

@@ -4,7 +4,9 @@ import "fmt"
 
 func main() {
 	num := 10
-	fmt.Println("Fibunacci is :", fib(num))
+	printFib(num)
+
+	// fmt.Println("Fibunacci is :", fib(num))
 }
 
 func fib(n int) int {
@@ -20,4 +22,11 @@ func fib(n int) int {
 	fibunacci := fib1 + fib2
 
 	return fibunacci
+}
+
+func printFib(n int) {
+	fmt.Println("Series ")
+	for i := 0; i <= n; i++ {
+		fmt.Printf("%d, ", fib(i))
+	}
 }

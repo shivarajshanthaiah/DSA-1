@@ -9,8 +9,8 @@ func main() {
 	fmt.Println(arr)
 }
 
-func update(up *[3]int) {
-	for i := 0; i < len(*up); i++ {
-		up[i] += 1
+func update(update *[3]int) {
+	for i := 0; i < len(*update); i++ {
+		update[i] += 1
 	}
 }

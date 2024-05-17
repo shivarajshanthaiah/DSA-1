@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 type Node struct {
-	data int
+	data byte
 	next *Node
 }
 
@@ -11,9 +11,8 @@ type LinkedList struct {
 	head *Node
 }
 
-func (list *LinkedList) insert(data int) {
+func (list *LinkedList) insertAtEnd(data byte) {
 	newNode := &Node{data: data}
-
 	if list.head == nil {
 		list.head = newNode
 		return
@@ -29,33 +28,37 @@ func (list *LinkedList) insert(data int) {
 func (list *LinkedList) display() {
 	temp := list.head
 	for temp != nil {
-		fmt.Print("->", temp.data)
+		fmt.Printf("%c->,", temp.data)
 		temp = temp.next
 	}
 	fmt.Println()
-
 }
 
-func (list *LinkedList) deleteLastNode() {
-	temp := list.head
+func (list *LinkedList) reverse() {
 	var prev *Node
-
-	for temp.next != nil {
-		prev = temp
-		temp = temp.next
+	current := list.head
+	var next *Node
+	for current != nil {
+		next = current.next
+		current.next = prev
+		prev = current
+		current = next
 	}
-
-	prev.next = nil
+	list.head = prev
 }
 
 func main() {
+
 	list := LinkedList{}
-	list.insert(20)
-	list.insert(30)
-	list.insert(40)
 
+	list.insertAtEnd('2')
+	list.insertAtEnd('d')
+	list.insertAtEnd('f')
+	list.insertAtEnd('f')
+	list.insertAtEnd('b')
 	list.display()
 
-	list.deleteLastNode()
+	list.reverse()
 	list.display()
+
 }
