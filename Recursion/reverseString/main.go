@@ -3,15 +3,14 @@ package main
 import "fmt"
 
 func main() {
-	str := "Hello World"
-	reverse(str, len(str)-1)
+	str := "hello world"
+	ans := reversed(str)
+	fmt.Println(ans)
 }
 
-func reverse(s string, i int) {
-	if i < 0 {
-		return
+func reversed(s string) string {
+	if len(s) == 0 {
+		return s
 	}
-	fmt.Printf("%c",s[i])
-	reverse(s, i-1)
-
+	return reversed(s[1:]) + string(s[0])
 }
